@@ -1,0 +1,17 @@
+MODEL:
+  DEVICE: "cpu"
+  NUM_WORKERS: 4
+  BATCH_SIZE: 8
+  NUM_JOINTS: 21
+  PRETRAIN_WEIGHT:
+    HM_NET_PATH: "./model/pretrained_models/net_hm.pth"
+    MESH_NET_PATH: "./model/pretrained_models/net_feat_mesh.pth"
+    POSE_NET_PATH: "./model/pretrained_models/net_mesh_pose.pth"
+GRAPH:
+  TEMPLATE_PATH: "./data/0214_lowP_vn_g.0001.obj"
+EVAL:
+  SAVE_DIR: "./output"
+  SAVE_BATCH_IMAGES_PRED: True
+  PRINT_FREQ: 5
+  SAVE_POSE_ESTIMATION: True
+  DATASET: "real_world_testset"

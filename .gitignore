@@ -1,0 +1,24 @@
+# compilation and distribution
+__pycache__
+_ext
+*.pyc
+*.so
+
+# pytorch/python/numpy formats
+*.pkl
+
+# ipython/jupyter notebooks
+*.ipynb
+**/.ipynb_checkpoints/
+
+# Editor temporaries
+*.swn
+*.swo
+*.swp
+*~
+
+# Pycharm editor settings
+.idea
+
+# project dirs
+/output

@@ -1,0 +1,6 @@
+numpy>=1.13
+matplotlib
+opencv-python>=3.2
+opendr>=0.76
+scipy>=0.19.1
+yacs>=0.1.6
