@@ -64,6 +64,9 @@ class ShapePoseNetwork(nn.Module):
 
     def to(self, *args, **kwargs):
         super(ShapePoseNetwork, self).to(*args, **kwargs)
+        self.graph_L = [l.to(*args, **kwargs) for l in self.graph_L]
+        self.net_feat_mesh.mesh_net.graph_L = self.graph_L
+        self.net_mesh_pose.graph_L = self.graph_L
         self.graph_mask = self.graph_mask.to(*args, **kwargs)
 
     def forward(self, images, cam_param, bbox, pose_root, pose_scale):
