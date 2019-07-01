@@ -110,8 +110,8 @@ def sparse_python_to_torch(sp_python):
     L_data = torch.from_numpy(L_data)
     L_data = L_data.type(torch.FloatTensor)
     L = torch.sparse.FloatTensor(indices, L_data, torch.Size(L.shape))
-    if torch.cuda.is_available():
-        L = L.cuda()
+#     if torch.cuda.is_available():
+#         L = L.cuda()
 
     return L
 
