@@ -33,6 +33,11 @@ SK_ty_color = 236.42484
 
 
 def SK_rot_mx(rot_vec):
+    """
+    use Rodrigues' rotation formula to transform the rotation vector into rotation matrix
+    :param rot_vec:
+    :return:
+    """
     theta = LA.norm(rot_vec)
     vector = np.array(rot_vec) * math.sin(theta / 2.0) / theta
     a = math.cos(theta / 2.0)
@@ -118,7 +123,6 @@ class STBDataset(torch.utils.data.Dataset):
 
     def SK_xyz_depth2color(self, depth_xyz, trans_vec, rot_mx):
         """
-        use Rodrigues' rotation formula to transform it into rotation matrix
         :param depth_xyz: N x 21 x 3, trans_vec: 3, rot_mx: 3 x 3
         :return: color_xyz: N x 21 x 3
         """
