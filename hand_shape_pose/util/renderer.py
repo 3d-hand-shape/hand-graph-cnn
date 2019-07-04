@@ -219,7 +219,7 @@ def render_model(verts,
     if color_id is None:
         color = colors['light_blue']
     else:
-        color_list = colors.values()
+        color_list = list(colors.values())
         color = color_list[color_id % len(color_list)]
 
     imtmp = simple_renderer(rn, verts, faces, color=color)
