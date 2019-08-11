@@ -27,7 +27,7 @@ If you find our work useful in your research, please consider citing:
     ```
 
 ### Pre-trained models
-Download pre-trained models from [online drive](https://mega.nz/#!yfZXBayC!izaLXi4X8LsgPuRWqKlUrCKBWNLVKTvfgAuFIS7SSFY), and unzip the file to ${HAND_ROOT}/model.
+~~Download pre-trained models from [online drive](https://mega.nz/#!yfZXBayC!izaLXi4X8LsgPuRWqKlUrCKBWNLVKTvfgAuFIS7SSFY), and unzip the file to ${HAND_ROOT}/model.~~
 
 ### Running the code
 1. Evaluate on our real-world dataset and visualize the results of hand mesh and pose.
