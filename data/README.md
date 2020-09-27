@@ -90,7 +90,7 @@ running the following script:
     ```
    The visualization results will be saved to `${HAND_ROOT}/data/example_synthetic.jpg`.
 
-![example image](./example_synthetic.jpg | width=50%)
+![example image](./example_synthetic.jpg)
 
 
 ## 2. Real-world image test set
