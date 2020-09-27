@@ -138,18 +138,13 @@ def cam_projection(local_pose3d, cam_proj_mat):
     return pose_2d
 
 
-def load_mesh_from_obj(mesh_gt_dir, pose_id, arm_index_range=[473, 529]):
+def load_mesh_from_obj(mesh_file, arm_index_range=[473, 529]):
     """
     Load mesh vertices, normals, triangle indices and vertices from obj file
-    :param mesh_gt_dir: directory path saving the hand mesh obj files
-    :param pose_id: pose id
+    :param mesh_file: path to the hand mesh obj file
     :param arm_index_range: range of indices which belong to arm
     :return: mesh vertices, normals, triangle indices and vertices
     """
-    mesh_files = glob.glob(osp.join(mesh_gt_dir, "*.%04d.obj" % (pose_id + 1)))
-    assert len(mesh_files) == 1, "Cannot find a unique mesh file for pose %04d" % (pose_id + 1)
-    mesh_file = mesh_files[0]
-
     mesh_pts = []
     mesh_tri_idx = []
     mesh_vn = []

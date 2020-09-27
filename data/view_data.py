@@ -12,7 +12,7 @@ from data.utils import *
 from hand_shape_pose.util.vis import *
 
 
-def init_3d_labels(cam_param_path, pose3d_gt_path, ):
+def init_pose3d_labels(cam_param_path, pose3d_gt_path):
     all_camera_params = load_camera_param(cam_param_path)
     all_global_pose3d_gt = load_global_pose3d_gt(pose3d_gt_path)
     return all_camera_params, all_global_pose3d_gt
@@ -20,9 +20,9 @@ def init_3d_labels(cam_param_path, pose3d_gt_path, ):
 
 def read_data(im_path, all_camera_params, all_global_pose3d_gt, global_mesh_gt_dir):
     """
-
+    read the corresponding pose and mesh ground truth of the image sample, and camera parameters
     :param im_path:
-    :param all_camera_params: (N_pose, N_cam, 7)
+    :param all_camera_params: (N_pose, N_cam, 7) focal_length, 3 translation val; 3 euler angles (degree)
     :param all_global_pose3d_gt: (N_pose, 21, 3)
     :param global_mesh_gt_dir:
     :return:
@@ -36,10 +36,12 @@ def read_data(im_path, all_camera_params, all_global_pose3d_gt, global_mesh_gt_d
     local_pose3d_gt = transform_global_to_cam(global_pose3d_gt, cam_param)  # (21, 3)
 
     # get ground truth of 3D hand mesh
-    global_mesh_pts_gt, global_mesh_normal_gt, mesh_tri_idx = \
-        load_mesh_from_obj(global_mesh_gt_dir, pose_id)
+    mesh_files = glob.glob(osp.join(global_mesh_gt_dir, "*.%04d.obj" % (pose_id + 1)))
+    assert len(mesh_files) == 1, "Cannot find a unique mesh file for pose %04d" % (pose_id + 1)
+    mesh_file = mesh_files[0]
+    global_mesh_pts_gt, global_mesh_normal_gt, mesh_tri_idx = load_mesh_from_obj(mesh_file)
     # global_mesh_pts_gt: (N_vertex, 3), global_mesh_normal_gt: (N_tris, 3)
-    # mesh_tri_idx: (N_tris, 3), global_mesh_tri_pts_gt: (N_tris, 3, 3)
+    # mesh_tri_idx: (N_tris, 3)
 
     local_mesh_pts_gt = transform_global_to_cam(global_mesh_pts_gt, cam_param)  # (N_vertex, 3)
     local_mesh_normal_gt = transform_global_to_cam(global_mesh_normal_gt, cam_param)
@@ -106,11 +108,11 @@ def visualize_data(im_path, local_pose3d_gt, local_mesh_pts_gt, cam_param, mesh_
     ret = fig2data(fig)
     plt.close(fig)
 
-    cv2.imwrite('./data/example.jpg', ret)
+    cv2.imwrite('./data/example_synthetic.jpg', ret)
 
 
 def main():
-    parser = argparse.ArgumentParser(description="View 3D Hand Shape and Pose Dataset")
+    parser = argparse.ArgumentParser(description="View Synthetic 3D Hand Shape and Pose Dataset")
     parser.add_argument(
         "--image-path",
         help="path to image file",
@@ -118,12 +120,12 @@ def main():
     parser.add_argument(
         "--camera-param-path",
         default="./data/synthetic_train_val/3D_labels/camPosition.txt",
-        help="path to camera parameters",
+        help="path to file of camera parameters",
     )
     parser.add_argument(
         "--global-pose3d-gt-path",
         default="./data/synthetic_train_val/3D_labels/handGestures.txt",
-        help="path to global 3D hand pose ground truth",
+        help="path to file of global 3D hand pose ground truth",
     )
     parser.add_argument(
         "--global-mesh-gt-dir",
@@ -134,7 +136,7 @@ def main():
     args = parser.parse_args()
 
     all_camera_params, all_global_pose3d_gt = \
-        init_3d_labels(args.camera_param_path, args.global_pose3d_gt_path)
+        init_pose3d_labels(args.camera_param_path, args.global_pose3d_gt_path)
 
     local_pose3d_gt, local_mesh_pts_gt, local_mesh_normal_gt, cam_param, mesh_tri_idx = \
         read_data(args.image_path, all_camera_params, all_global_pose3d_gt, args.global_mesh_gt_dir)

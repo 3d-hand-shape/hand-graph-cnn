@@ -1,12 +1,13 @@
 ## 3D Hand Shape and Pose Dataset
-Synthetic 3D Hand Shape and Pose Dataset of CVPR 2019 paper "3D Hand Shape and Pose Estimation from a Single RGB Image" 
+3D Hand Shape and Pose Dataset of CVPR 2019 paper "3D Hand Shape and Pose Estimation from a Single RGB Image" 
 [[paper](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxnZWxpdWhhb250dXxneDo3ZjE0ZjY3OWUzYjJkYjA2)] 
 [[demo](https://youtu.be/NActf7FcrmI)] 
 [[source code](https://github.com/3d-hand-shape/hand-graph-cnn)]
 
 ### Introduction
 We create a large-scale synthetic hand shape and pose dataset that provides the annotations of 
-both 3D hand joint locations and full 3D hand meshes.
+both 3D hand meshes and 3D hand joint locations. In addition, we create a real-world hand shape and pose dataset 
+dataset containing 583 hand RGB images with the annotations of 3D hand meshes and 3D hand joint locations.
 
 ### Citation
 If you use this dataset in your research, please cite:
@@ -18,7 +19,8 @@ If you use this dataset in your research, please cite:
 	  year={2019}
 	}
 
-### Download data
+## Synthetic image train/validation set
+### Data preparation
 ##### Download image data: 
    - Before downloading the large dataset, you can first download the small image dataset from 
    [sanity_check_images.zip (157MB)](https://drive.google.com/file/d/1ijoZL5Gh_bIj3yEG_ZboA4qnh3h8Suyf/view?usp=sharing) 
@@ -71,14 +73,14 @@ and 60,000 images for validation.
     export PYTHONPATH="${PYTHONPATH}:$PWD"
     ```
     
-- You can print all the training image paths and all the validation image paths by 
+- Print all the training image paths and all the validation image paths by 
 running the following script:
     ```
     python data/get_train_val_paths.py --train-val-flag train
     python data/get_train_val_paths.py --train-val-flag val
     ```
 
-- You can visualize one image and its corresponding ground truth hand pose and mesh by running the following script:
+- Visualize one image and its corresponding ground truth hand pose and mesh by running the following script:
     ```
     python data/view_data.py --image-path <path_to_image>
     ```
@@ -86,12 +88,29 @@ running the following script:
     ```
     python data/view_data.py --image-path ./data/synthetic_train_val/images/l21/cam21/handV2_rgt01_specTest5_gPoses_ren_25cRrRs_l21_cam21_.0492.png
     ```
-   The visualization results will be saved to `${HAND_ROOT}/synthetic_train_val/example.jpg`.
+   The visualization results will be saved to `${HAND_ROOT}/data/example_synthetic.jpg`.
 
-![example image](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/blob/master/data/example.jpg)
+![example image](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/blob/master/data/example_synthetic.jpg)
 
 
-### Real world test set
-We also release a real world test set in 
-https://github.com/3d-hand-shape/hand-graph-cnn/tree/master/data/real_world_testset. This small test set contains 
-583 hand RGB images with the annotations of 3D hand mesh and 3D hand joint locations.
+## Real-world image test set
+### Data preparation
+- **Images**: Images have been saved in `${HAND_ROOT}/data/real_world_testset/images/` in this repository.
+
+- **Meshes**: Download the ground truth 3D hand mesh from
+[real_hand_3D_mesh.zip (44.2MB)](https://drive.google.com/file/d/1f0Hr3OwAuTO95zLvAjlc9eTYcfbNbnPt/view?usp=sharing).
+Extract the zip file and put all the obj files into `${HAND_ROOT}/data/real_world_testset/real_hand_3D_mesh/`.
+
+### Run example code
+- Visualize one image and its corresponding ground truth hand pose and mesh by running the following script:
+    ```
+    python data/view_realworld_data.py --image-path <path_to_image>
+    ```
+    For example:
+    ```
+    python data/view_realworld_data.py --image-path ./data/real_world_testset/images/00018.jpg
+    ```
+   The visualization results will be saved to `${HAND_ROOT}/data/example_realworld.jpg`.
+
+![realworld example image](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/blob/master/data/example_realworld.jpg)
+

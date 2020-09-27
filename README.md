@@ -45,5 +45,5 @@ If you find our work useful in your research, please consider citing:
 
 ### 3D hand shape and pose dataset
 We release the 3D hand shape and pose dataset. It contains a large scale synthetic image dataset for training and validation, 
-and a small real image dataset for testing. For details, please go to the 
+and a small real-world image dataset for testing. For details, please go to the 
 [data folder](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/tree/master/data) in this repository. 
