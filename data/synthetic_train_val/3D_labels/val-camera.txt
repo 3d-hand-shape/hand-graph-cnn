@@ -1,0 +1,4 @@
+cam06
+cam12
+cam20
+cam21
