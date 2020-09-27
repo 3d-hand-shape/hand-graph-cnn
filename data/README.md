@@ -24,8 +24,8 @@ If you use this dataset in your research, please cite:
    [sanity_check_images.zip (157MB)](https://drive.google.com/file/d/1ijoZL5Gh_bIj3yEG_ZboA4qnh3h8Suyf/view?usp=sharing) 
    for sanity check. Extract the zip file and put the folders (`l01`, `l21`) into `${HAND_ROOT}/data/synthetic_train_val/images/`. 
    To complete the sanity check, 
-   you also need to [download the mesh data](https://github.com/3d-hand-shape/hand-pose-shape#download-mesh-data), 
-   then [run the example code](https://github.com/3d-hand-shape/hand-pose-shape#run-example-code).
+   you also need to [download the mesh data](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/tree/master/data#download-mesh-data), 
+   then [run the example code](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/tree/master/data#run-example-code).
    - Download all the image data from 
 [part1 (13.8GB)](https://drive.google.com/drive/folders/1IVZpWjEQ6UyBazzfpUCE-hpI6nfeQDUV?usp=sharing), 
 [part2 (14.7GB)](https://drive.google.com/drive/folders/17Cthv0q6WlD131MdmShLMop8dzmgVlJB?usp=sharing), 
@@ -65,26 +65,30 @@ and 60,000 images for validation.
 
 
 ### Run example code
+- Before running the example code, you need to make sure you are at the root directory of this repository by running:
+    ```
+    cd ${HAND_ROOT}
+    export PYTHONPATH="${PYTHONPATH}:$PWD"
+    ```
+    
 - You can print all the training image paths and all the validation image paths by 
 running the following script:
     ```
-    python get_train_val_paths.py --train-val-flag train
-    ```
-    ```
-    python get_train_val_paths.py --train-val-flag val
+    python data/get_train_val_paths.py --train-val-flag train
+    python data/get_train_val_paths.py --train-val-flag val
     ```
 
 - You can visualize one image and its corresponding ground truth hand pose and mesh by running the following script:
     ```
-    python view_data.py --image-path <path_to_image>
+    python data/view_data.py --image-path <path_to_image>
     ```
     For example:
     ```
-    python view_data.py --image-path ./data/synthetic_train_val/images/l21/cam21/handV2_rgt01_specTest5_gPoses_ren_25cRrRs_l21_cam21_.0492.png
+    python data/view_data.py --image-path ./data/synthetic_train_val/images/l21/cam21/handV2_rgt01_specTest5_gPoses_ren_25cRrRs_l21_cam21_.0492.png
     ```
    The visualization results will be saved to `${HAND_ROOT}/synthetic_train_val/example.jpg`.
 
-![example image](https://github.com/3d-hand-shape/hand-pose-shape/blob/master/example.jpg)
+![example image](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/blob/master/data/example.jpg)
 
 
 ### Real world test set
