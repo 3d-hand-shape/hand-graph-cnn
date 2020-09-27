@@ -19,7 +19,7 @@ If you use this dataset in your research, please cite:
 	  year={2019}
 	}
 
-## Synthetic image train/validation set
+## 1. Synthetic image train/validation set
 ### Data preparation
 ##### Download image data: 
    - Before downloading the large dataset, you can first download the small image dataset from 
@@ -93,7 +93,7 @@ running the following script:
 ![example image](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/blob/master/data/example_synthetic.jpg)
 
 
-## Real-world image test set
+## 2. Real-world image test set
 ### Data preparation
 - **Images**: Images have been saved in `${HAND_ROOT}/data/real_world_testset/images/` in this repository.
 
