@@ -106,7 +106,7 @@ def visualize_data(im_path, local_pose3d_gt, local_mesh_pts_gt, cam_param, mesh_
     ret = fig2data(fig)
     plt.close(fig)
 
-    cv2.imwrite('example.jpg', ret)
+    cv2.imwrite('./data/example.jpg', ret)
 
 
 def main():
