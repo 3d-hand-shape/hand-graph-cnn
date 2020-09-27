@@ -90,7 +90,7 @@ running the following script:
     ```
    The visualization results will be saved to `${HAND_ROOT}/data/example_synthetic.jpg`.
 
-![example image](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/blob/master/data/example_synthetic.jpg)
+![example image](./example_synthetic.jpg | width=50%)
 
 
 ## 2. Real-world image test set
@@ -112,5 +112,5 @@ Extract the zip file and put all the obj files into `${HAND_ROOT}/data/real_worl
     ```
    The visualization results will be saved to `${HAND_ROOT}/data/example_realworld.jpg`.
 
-![realworld example image](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/blob/master/data/example_realworld.jpg)
+![realworld example image](./example_realworld.jpg)
 
