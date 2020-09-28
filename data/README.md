@@ -7,7 +7,7 @@
 ### Introduction
 We create a large-scale synthetic hand shape and pose dataset that provides the annotations of 
 both 3D hand meshes and 3D hand joint locations. In addition, we create a real-world hand shape and pose dataset 
-dataset containing 583 hand RGB images with the annotations of 3D hand meshes and 3D hand joint locations.
+dataset containing real-world hand RGB images with the annotations of 3D hand meshes and 3D hand joint locations.
 
 ### Citation
 If you use this dataset in your research, please cite:
