@@ -62,8 +62,8 @@ the mesh vertex normals, and the triangle indices. To create image specific grou
 the 3D hand mesh needs to be transformed into camera's local coordinate system.
 
 - **Train/val data split**: Validation cameras are specified in `${HAND_ROOT}/data/synthetic_train_val/3D_labels/val-camera.txt`. 
-All the other cameras are used for training. In this dataset, we provide 315,000 images for training, 
-and 60,000 images for validation.
+All the other cameras are used for training. In this dataset, we provide **315,000** images for training, 
+and **60,000** images for validation.
 
 
 ### Run example code
@@ -95,7 +95,8 @@ running the following script:
 
 ## 2. Real-world image test set
 ### Data preparation
-- **Images**: Images have been saved in `${HAND_ROOT}/data/real_world_testset/images/` in this repository.
+- **Images**: Images have been saved in `${HAND_ROOT}/data/real_world_testset/images/` in this repository. 
+ In this dataset, we provide 583 images for testing.
 
 - **Meshes**: Download the ground truth 3D hand mesh from
 [real_hand_3D_mesh.zip (44.2MB)](https://drive.google.com/file/d/1f0Hr3OwAuTO95zLvAjlc9eTYcfbNbnPt/view?usp=sharing).
