@@ -26,9 +26,6 @@ If you find our work useful in your research, please consider citing:
     pip install -r requirements.txt
     ```
 
-### Pre-trained models
-~~Download pre-trained models from [online drive](https://mega.nz/#!yfZXBayC!izaLXi4X8LsgPuRWqKlUrCKBWNLVKTvfgAuFIS7SSFY), and unzip the file to ${HAND_ROOT}/model.~~
-
 ### Running the code
 1. Evaluate on our real-world dataset and visualize the results of hand mesh and pose.
     ```
@@ -45,3 +42,8 @@ If you find our work useful in your research, please consider citing:
     python eval_script.py --config-file "configs/eval_STB_dataset.yaml"
     ```
    The pose estimation results will be saved to ${HAND_ROOT}/output/configs/eval_STB_dataset.yaml/pose_estimations.mat
+
+### 3D hand shape and pose dataset
+We release the 3D hand shape and pose dataset. It contains a large scale synthetic image dataset for training and validation, 
+and a small real-world image dataset for testing. For details, please go to the 
+[data folder](https://github.com/3d-hand-shape/hand-graph-cnn-dataset-private/tree/master/data) in this repository. 

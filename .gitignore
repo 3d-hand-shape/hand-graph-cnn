@@ -22,3 +22,5 @@ _ext
 
 # project dirs
 /output
+/data/synthetic_train_val
+/data/real_world_testset
